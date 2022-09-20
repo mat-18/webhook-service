@@ -5,7 +5,7 @@ const axios = require("axios");
 router.get(`/chat`, function (req, res, next) {
   const { message, sender, character, radius, location } = req.query;
 
-  const content = `${character} ${radius}s: ${message}`;
+  const content = `**${sender}** acting as **${character}** ${radius}s: \`${message}\``;
 
   axios.post(
     "https://discord.com/api/webhooks/1021164664438141038/znK1W46R_NXKUBtMZPBlGYg2ABKIiV8Rfi20hL90zGgBUusZujH0UBieEiOfx5sto8wE",
