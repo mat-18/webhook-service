@@ -48,7 +48,12 @@ router.get(`/log`, (req, res, next) => {
     {
       content: content,
     }
-  );
+  )
+  .then(res => {
+    console.log('success: '. response)
+  }).catch(error => {
+    console.log('Error: ',error)
+  })
 
   res.json({
     ManifestFileVersion: "000000000000",
