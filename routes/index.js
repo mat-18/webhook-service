@@ -43,7 +43,7 @@ router.get(`/chat`, (req, res, next) => {
 router.get(`/log`, (req, res, next) => {
   const {date, steamId, charName, actName, eventId, eventCategory, eventType, params } = req.query;
 
-  const content = `\`${date}\`: **${charName}** as **${actName}** | ${eventCategory} | ${eventType} | \`${params}\'`;
+  const content = `\`${date}\`: **${charName}** as **${actName}** | ${eventCategory} | ${eventType} | \`${params}\``;
 
   axios.post(
     "https://discord.com/api/webhooks/1021632130515742811/yrAkRtaA9cqDqWZ5fk-P2ePwD2BgrBofWrF9rlNSJ0A17zE-Hr0wR_buN1cI4RauEAPx",
