@@ -15,7 +15,11 @@ router.get(`/chat`, (req, res, next) => {
     {
       content: content,
     }
-  );
+  )  .then(res => {
+    console.log('success: '. response)
+  }).catch(error => {
+    console.log('Error: ',error)
+  });
 
   res.json({
     ManifestFileVersion: "000000000000",
@@ -41,19 +45,25 @@ router.get(`/chat`, (req, res, next) => {
 router.get(`/log`, (req, res, next) => {
   const {date, steamId, charName, actName, eventId, eventCategory, eventType, params } = req.query;
 
-  const content = `${eventCategory} log: ${charName} triggered ${eventId}: ${params}`;
+  const content = `Date:${date}
+SteamId:${steamId}
+CharName:${charName}
+ActName:${actName}
+EventId:${eventId}
+EventCategory${eventCategory}  
+EventType:${eventType}
+Params:${params}`;
 
   axios.post(
     "https://discord.com/api/webhooks/1021632130515742811/yrAkRtaA9cqDqWZ5fk-P2ePwD2BgrBofWrF9rlNSJ0A17zE-Hr0wR_buN1cI4RauEAPx",
     {
       content: content,
     }
-  )
-  .then(res => {
+  ).then(res => {
     console.log('success: '. response)
   }).catch(error => {
     console.log('Error: ',error)
-  })
+  });
 
   res.json({
     ManifestFileVersion: "000000000000",
